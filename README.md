@@ -24,7 +24,7 @@ If you are using Yarn:
 yarn install
 
 Setup the database:
-You need to edit the file sequelize.js and change the data there to match your config, remember the structure (mysql://user:password@host:port/database), then export the file/script delilah.sql in your database manager.
+You need to edit the route of 'sequelize' const declareted in 'server.js' and 'middlewares.js' files, remember the structure (mysql://user:password@host:port/database), then export the file/script delilah.sql in your database manager.
 
 Run the server!
 Make sure you are in the root of the folder (in this case, it is 'server'), then simply run:
