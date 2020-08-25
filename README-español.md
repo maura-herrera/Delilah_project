@@ -44,7 +44,6 @@ npm start
 
 ```
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
 
 ## Ejecutando las pruebas ⚙️
 
@@ -162,7 +161,7 @@ Response:
     }
  
 ]
-
+```
 
 _Método PUT: /dishes_
 _A través de este método, es posible cambiar información de los platos de comida existentes. Para tal efecto, se envía en el header, el token que el administrador obtiene al loguearse. Adicionalmente, en el body (en formato JSON) deberá enviarse el id del producto, el nuevo nombre (si aplica) o el nuevo precio. Si el put es exitoso, devuelve la respuesta "status": "Dish update successful"_
