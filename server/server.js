@@ -149,6 +149,19 @@ app.put('/orders', middlewares.validateToken, middlewares.validateAdmin, middlew
   }
 );
 
+//Delete order by id
+app.delete('/orders', middlewares.validateToken, middlewares.validateAdmin, middlewares.orderExist,
+  (req, res) => {
+    const { id_O } = req.body.id_O;
+    const query = 'DELETE FROM orders WHERE id_O = ?';
+    sequelize.query(query, { replacements: [id_O] })
+      .then((data) => {
+        res.status(404).json({ status: 'Order deleted' });
+      })
+      .catch((e) => console.log('Something went wrong ...', e));
+  }
+);
+
 app.get('/orders', middlewares.validateToken, middlewares.validateAdmin, (req, res) => {
   const orders =
     "SELECT status.state, orders.hour, orders.id_O, GROUP_CONCAT(dishes.dish SEPARATOR ', ') AS description, pay.method, SUM(dishes.price) AS total, users.name, users.address FROM orders orders JOIN status status ON orders.code_status = status.id JOIN users users ON orders.id_user= users.id JOIN pay_methods pay ON orders.id_paymethod = pay.id JOIN orders_description orders_description ON orders.id_O = orders_description.id_order JOIN dishes dishes ON orders_description.id_dishes = dishes.id_dish GROUP BY orders.id_O";
