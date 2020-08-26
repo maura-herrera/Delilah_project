@@ -284,9 +284,19 @@ Example of route: localhost:3000/orders
 
 ``` 
 
+_Método DELETE: /orders_
+_A través de este método, es posible eliminar una orden por id. Para tal efecto, se envía en el header, el token que el administrador obtiene al loguearse. Adicionalmente, en el body (en formato JSON) deberá enviarse el id de la orden. Si el delete de la orden es exitoso, devuelve la respuesta: "status": "Order deleted"_
+
+```
+Method: DELETE
+Example of route: localhost:3000/orders
 
 
+{
+	"id_O":1
+}
 
+```
 
 
 ---
